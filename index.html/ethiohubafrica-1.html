@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EthioHub Africa – Ethiopia's Trusted Marketplace</title>
+<meta name="description" content="Buy, sell, find jobs, rent property and connect with people across Ethiopia. EthioHub Africa is Ethiopia's safest and most trusted classifieds platform." />
+<meta name="keywords" content="Ethiopia classifieds, jobs Ethiopia, rent Addis Ababa, buy sell Ethiopia, Jijiga classifieds, Ethiopian marketplace, EthioHub" />
+<meta name="google-site-verification" content="google2e8c338cf65f6757" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="EthioHub Africa – Ethiopia's Trusted Marketplace" />
+<meta property="og:description" content="Buy, sell, find jobs and connect across Ethiopia." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_ET" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['Playfair Display', 'Noto Sans Ethiopic', 'serif'],
+        body: ['DM Sans', 'Noto Sans Ethiopic', 'sans-serif'],
+      },
+      colors: {
+        'eth-green': '#1a5c1a',
+        'eth-gold': '#D4A017',
+        'eth-red': '#C8102E',
+        'eth-coffee': '#4a2800',
+        'eth-cream': '#FFF8EB',
+      }
+    }
+  }
+}
+</script>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', 'Noto Sans Ethiopic', sans-serif; background: #FFF8EB; color: #1a0e00; }
+  .font-display { font-family: 'Playfair Display', 'Noto Sans Ethiopic', serif; }
+
+  /* Ethiopian flag stripe */
+  .flag-stripe {
+    height: 4px;
+    background: repeating-linear-gradient(90deg,
+      #1a5c1a 0px, #1a5c1a 33.3%,
+      #D4A017 33.3%, #D4A017 66.6%,
+      #C8102E 66.6%, #C8102E 100%
+    );
+  }
+
+  /* Coffee texture bg */
+  .coffee-bg {
+    background-color: #FFF8EB;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(74,40,0,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(185,90,55,0.04) 0%, transparent 50%);
+  }
+
+  /* Dark mode */
+  .dark body, body.dark { background: #0f0a05; color: #f5e8d0; }
+  .dark .coffee-bg, body.dark .coffee-bg { background-color: #0f0a05; }
+
+  /* Animations */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes shimmer { 0%,100%{opacity:0.5} 50%{opacity:1} }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+  .fade-up { animation: fadeUp 0.6s ease forwards; }
+  .fade-up-1 { animation: fadeUp 0.6s 0.1s ease both; }
+  .fade-up-2 { animation: fadeUp 0.6s 0.2s ease both; }
+  .fade-up-3 { animation: fadeUp 0.6s 0.3s ease both; }
+  .pulse-glow { animation: shimmer 2s infinite; }
+
+  /* Card hover */
+  .card-hover { transition: all 0.2s ease; }
+  .card-hover:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(26,92,26,0.15); }
+
+  /* Featured glow */
+  .featured-card { box-shadow: 0 0 0 2px #D4A017, 0 4px 20px rgba(212,160,23,0.2); }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #f1e8d0; }
+  ::-webkit-scrollbar-thumb { background: #1a5c1a; border-radius: 3px; }
+
+  /* Modal backdrop */
+  .modal-backdrop { backdrop-filter: blur(8px); background: rgba(0,0,0,0.7); }
+
+  /* Tabs */
+  .tab-active { border-bottom: 3px solid #1a5c1a; color: #1a5c1a; font-weight: 600; }
+
+  /* Hero pattern */
+  .hero-pattern {
+    background-image: repeating-linear-gradient(
+      45deg, transparent, transparent 35px,
+      rgba(212,160,23,0.08) 35px, rgba(212,160,23,0.08) 36px
+    );
+  }
+
+  /* Button styles */
+  .btn-primary { background:#1a5c1a; color:white; padding:10px 24px; border-radius:10px; font-weight:600; cursor:pointer; border:none; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px; }
+  .btn-primary:hover { background:#145014; transform:translateY(-1px); }
+  .btn-secondary { background:#D4A017; color:#1a0e00; padding:10px 24px; border-radius:10px; font-weight:700; cursor:pointer; border:none; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px; }
+  .btn-secondary:hover { background:#b8890f; transform:translateY(-1px); }
+  .btn-outline { background:transparent; color:#1a5c1a; padding:10px 24px; border-radius:10px; font-weight:600; cursor:pointer; border:2px solid #1a5c1a; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px; }
+  .btn-outline:hover { background:#f0f9f0; }
+
+  /* Form inputs */
+  .form-input { width:100%; padding:10px 14px; border:1.5px solid #d4c4a0; border-radius:10px; background:#fff; font-size:14px; font-family:inherit; outline:none; transition:border 0.2s; }
+  .form-input:focus { border-color:#1a5c1a; box-shadow:0 0 0 3px rgba(26,92,26,0.1); }
+  .form-select { width:100%; padding:10px 14px; border:1.5px solid #d4c4a0; border-radius:10px; background:#fff; font-size:14px; font-family:inherit; outline:none; cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231a5c1a' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; }
+  .form-select:focus { border-color:#1a5c1a; outline:none; }
+
+  /* Ad card */
+  .ad-card { background:white; border:1.5px solid #e8dcc8; border-radius:14px; overflow:hidden; cursor:pointer; transition:all 0.2s; }
+  .ad-card:hover { border-color:#1a5c1a; transform:translateY(-3px); box-shadow:0 8px 24px rgba(26,92,26,0.12); }
+  .ad-img { width:100%; height:170px; object-fit:cover; background:linear-gradient(135deg,#e8dcc8,#d4c4a0); display:flex; align-items:center; justify-content:center; font-size:48px; color:#a09070; }
+
+  /* Nav link */
+  .nav-link { padding:8px 12px; border-radius:8px; font-size:13px; font-weight:500; color:#4a3a20; text-decoration:none; display:flex; align-items:center; gap:6px; transition:all 0.15s; white-space:nowrap; }
+  .nav-link:hover { background:#f0f9f0; color:#1a5c1a; }
+  .nav-link.active { background:#e8f5e8; color:#1a5c1a; }
+
+  /* Category card */
+  .cat-card { background:white; border:1.5px solid #e8dcc8; border-radius:14px; padding:16px 12px; text-align:center; cursor:pointer; transition:all 0.2s; display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .cat-card:hover { border-color:#1a5c1a; transform:translateY(-3px); box-shadow:0 6px 20px rgba(26,92,26,0.1); }
+
+  /* Dark mode overrides */
+  .dark .ad-card, body.dark .ad-card { background:#1a1208; border-color:#3a2a10; }
+  .dark .cat-card, body.dark .cat-card { background:#1a1208; border-color:#3a2a10; }
+  .dark .form-input, body.dark .form-input { background:#1a1208; border-color:#3a2a10; color:#f5e8d0; }
+  .dark .form-select, body.dark .form-select { background:#1a1208; border-color:#3a2a10; color:#f5e8d0; }
+
+  /* Payment method card */
+  .pay-card { border:2px solid #e8dcc8; border-radius:14px; padding:14px; cursor:pointer; transition:all 0.2s; }
+  .pay-card:hover { border-color:#1a5c1a; background:#f0f9f0; }
+  .pay-card.selected { border-color:#1a5c1a; background:#e8f5e8; }
+
+  /* Step indicator */
+  .step-dot { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; transition:all 0.3s; }
+  .step-dot.done { background:#1a5c1a; color:white; }
+  .step-dot.active { background:#D4A017; color:#1a0e00; }
+  .step-dot.pending { background:#e8dcc8; color:#a09070; }
+
+  /* Tooltip on copy */
+  .copied-tip { position:absolute; top:-30px; left:50%; transform:translateX(-50%); background:#1a5c1a; color:white; padding:4px 10px; border-radius:6px; font-size:11px; white-space:nowrap; pointer-events:none; }
+
+  /* Responsive helpers */
+  @media (max-width: 640px) {
+    .hide-mobile { display: none !important; }
+  }
+  @media (min-width: 641px) {
+    .show-mobile { display: none !important; }
+  }
+
+  /* Notification badge */
+  .notif-badge { position:absolute; top:-4px; right:-4px; background:#C8102E; color:white; width:16px; height:16px; border-radius:50%; font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+
+  /* Toast */
+  .toast { position:fixed; bottom:20px; right:20px; background:#1a5c1a; color:white; padding:12px 20px; border-radius:12px; font-size:14px; font-weight:500; z-index:9999; display:flex; align-items:center; gap:8px; box-shadow:0 4px 20px rgba(0,0,0,0.2); transform:translateY(100px); opacity:0; transition:all 0.3s; }
+  .toast.show { transform:translateY(0); opacity:1; }
+
+  /* Loading spinner */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin { animation: spin 0.8s linear infinite; }
+</style>
+</head>
+
+<body class="coffee-bg" id="body">
+
+<!-- ══════════════════════════════════════════
+     GOOGLE VERIFICATION (hidden)
+══════════════════════════════════════════ -->
+<div style="display:none" id="google-verification">google-site-verification: google2e8c338cf65f6757.html</div>
+
+<!-- ══════════════════════════════════════════
+     TOAST NOTIFICATION
+══════════════════════════════════════════ -->
+<div class="toast" id="toast">
+  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toast-msg">Done!</span>
+</div>
+
+<!-- ══════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════ -->
+<header style="position:sticky;top:0;z-index:100;background:#FFF8EBf5;backdrop-filter:blur(12px);border-bottom:1px solid #e8dcc8;box-shadow:0 1px 8px rgba(26,92,26,0.06);" id="navbar">
+  <div class="flag-stripe"></div>
+  <div style="max-width:1280px;margin:0 auto;padding:0 16px;height:60px;display:flex;align-items:center;gap:12px;">
+
+    <!-- Logo -->
+    <a href="#" onclick="showPage('home')" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;">
+      <div style="width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#1a5c1a,#0d3a0d);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(26,92,26,0.3);">
+        <span style="color:#D4A017;font-weight:800;font-size:12px;letter-spacing:-0.5px;">EH</span>
+      </div>
+      <div class="hide-mobile">
+        <div class="font-display" style="font-size:16px;font-weight:700;color:#1a0e00;line-height:1;">EthioHub</div>
+        <div style="font-size:9px;color:#7a5c2a;letter-spacing:2px;text-transform:uppercase;line-height:1;">Africa</div>
+      </div>
+    </a>
+
+    <!-- Search bar -->
+    <div style="flex:1;max-width:480px;" class="hide-mobile">
+      <div onclick="showPage('browse')" style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;border:1.5px solid #e8dcc8;background:#fff7ee;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#1a5c1a'" onmouseout="this.style.borderColor='#e8dcc8'">
+        <svg width="16" height="16" fill="none" stroke="#7a5c2a" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span style="font-size:13px;color:#a09070;">Search jobs, property, cars, electronics...</span>
+      </div>
+    </div>
+
+    <!-- Right actions -->
+    <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+      <!-- Dark mode toggle -->
+      <button onclick="toggleDark()" style="width:36px;height:36px;border-radius:10px;border:1.5px solid #e8dcc8;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;" title="Toggle dark mode" id="dark-toggle">
+        🌙
+      </button>
+
+      <!-- Auth buttons -->
+      <div id="auth-buttons" style="display:flex;gap:6px;">
+        <button class="btn-outline hide-mobile" onclick="showModal('login-modal')" style="padding:7px 16px;font-size:13px;">Sign In</button>
+        <button class="btn-primary" onclick="showPage('post')" style="padding:7px 16px;font-size:13px;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span>Post Ad</span>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <button onclick="toggleMobileMenu()" style="width:36px;height:36px;border-radius:10px;border:1.5px solid #e8dcc8;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;" class="show-mobile">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- Category bar -->
+  <div style="border-top:1px solid #e8dcc8;background:#fffaf2;" class="hide-mobile">
+    <div style="max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:2px;overflow-x:auto;" class="scrollbar-hide">
+      <a class="nav-link" href="#" onclick="filterCategory('jobs')">💼 Jobs</a>
+      <a class="nav-link" href="#" onclick="filterCategory('real-estate')">🏠 Real Estate</a>
+      <a class="nav-link" href="#" onclick="filterCategory('vehicles')">🚗 Vehicles</a>
+      <a class="nav-link" href="#" onclick="filterCategory('for-sale')">🏷️ For Sale</a>
+      <a class="nav-link" href="#" onclick="filterCategory('services')">🔧 Services</a>
+      <a class="nav-link" href="#" onclick="filterCategory('electronics')">📱 Electronics</a>
+      <a class="nav-link" href="#" onclick="filterCategory('personals')">❤️ Personals</a>
+      <a class="nav-link" href="#" onclick="filterCategory('community')">👥 Community</a>
+      <a class="nav-link" href="#" onclick="filterCategory('agriculture')">🌾 Agriculture</a>
+      <a class="nav-link" href="#" onclick="filterCategory('education')">🎓 Education</a>
+    </div>
+  </div>
+
+  <!-- Mobile menu drawer -->
+  <div id="mobile-menu" style="display:none;border-top:1px solid #e8dcc8;background:#fffaf2;padding:12px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+      <button class="nav-link" onclick="filterCategory('jobs');toggleMobileMenu()">💼 Jobs</button>
+      <button class="nav-link" onclick="filterCategory('real-estate');toggleMobileMenu()">🏠 Real Estate</button>
+      <button class="nav-link" onclick="filterCategory('vehicles');toggleMobileMenu()">🚗 Vehicles</button>
+      <button class="nav-link" onclick="filterCategory('for-sale');toggleMobileMenu()">🏷️ For Sale</button>
+      <button class="nav-link" onclick="filterCategory('electronics');toggleMobileMenu()">📱 Electronics</button>
+      <button class="nav-link" onclick="filterCategory('services');toggleMobileMenu()">🔧 Services</button>
+      <button class="nav-link" onclick="filterCategory('agriculture');toggleMobileMenu()">🌾 Agriculture</button>
+      <button class="nav-link" onclick="filterCategory('community');toggleMobileMenu()">👥 Community</button>
+    </div>
+    <div style="display:flex;gap:8px;padding-top:8px;border-top:1px solid #e8dcc8;">
+      <button class="btn-outline" onclick="showModal('login-modal');toggleMobileMenu()" style="flex:1;justify-content:center;">Sign In</button>
+      <button class="btn-primary" onclick="showModal('register-modal');toggleMobileMenu()" style="flex:1;justify-content:center;">Register Free</button>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     HOME PAGE
+══════════════════════════════════════════ -->
+<div id="page-home">
+
+  <!-- HERO -->
+  <section style="background:linear-gradient(135deg,#0d3a0d 0%,#1a5c1a 40%,#1e3a1e 100%);position:relative;overflow:hidden;padding:60px 16px 80px;">
+    <div class="hero-pattern" style="position:absolute;inset:0;"></div>
+    <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:rgba(212,160,23,0.06);filter:blur(60px);"></div>
+    <div style="position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:rgba(26,92,26,0.2);filter:blur(50px);"></div>
+
+    <div style="max-width:1280px;margin:0 auto;position:relative;">
+      <!-- Badge -->
+      <div class="fade-up" style="display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:50px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);margin-bottom:24px;">
+        <span>🇪🇹</span>
+        <span style="font-size:13px;color:#c8e6c8;font-weight:500;">Ethiopia's Most Trusted Marketplace</span>
+        <div style="width:8px;height:8px;border-radius:50%;background:#4ade80;animation:shimmer 2s infinite;"></div>
+      </div>
+
+      <h1 class="font-display fade-up-1" style="font-size:clamp(2rem,5vw,3.5rem);color:white;line-height:1.15;margin-bottom:20px;max-width:700px;">
+        Buy. Sell. Find Jobs.<br/>
+        <span style="color:#D4A017;">Across Ethiopia.</span>
+      </h1>
+
+      <p class="fade-up-2" style="color:#a8d8a8;font-size:clamp(15px,2vw,18px);max-width:520px;margin-bottom:32px;line-height:1.7;">
+        Ethiopia's safest classified platform. Post ads in minutes, reach your region, and connect with verified buyers and sellers nationwide.
+      </p>
+
+      <!-- Stats -->
+      <div class="fade-up-2" style="display:flex;gap:32px;margin-bottom:36px;flex-wrap:wrap;">
+        <div><div class="font-display" style="font-size:26px;font-weight:700;color:#D4A017;">50K+</div><div style="font-size:12px;color:#a8d8a8;">Active Ads</div></div>
+        <div><div class="font-display" style="font-size:26px;font-weight:700;color:#D4A017;">14</div><div style="font-size:12px;color:#a8d8a8;">Regions</div></div>
+        <div><div class="font-display" style="font-size:26px;font-weight:700;color:#D4A017;">100K+</div><div style="font-size:12px;color:#a8d8a8;">Users</div></div>
+        <div><div class="font-display" style="font-size:26px;font-weight:700;color:#D4A017;">Free</div><div style="font-size:12px;color:#a8d8a8;">To Post</div></div>
+      </div>
+
+      <div class="fade-up-3" style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button class="btn-secondary" onclick="showPage('post')" style="font-size:15px;padding:12px 28px;">Post Free Ad →</button>
+        <button class="btn-outline" onclick="showPage('browse')" style="border-color:rgba(255,255,255,0.4);color:white;font-size:15px;padding:12px 28px;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Browse Ads</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating search -->
+  <div style="max-width:800px;margin:-28px auto 0;padding:0 16px;position:relative;z-index:10;">
+    <div style="background:white;border:1.5px solid #e8dcc8;border-radius:16px;box-shadow:0 8px 32px rgba(26,92,26,0.12);padding:12px;display:flex;flex-wrap:wrap;gap:8px;">
+      <div style="flex:1;min-width:180px;display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f8f2e6;border-radius:10px;">
+        <svg width="16" height="16" fill="none" stroke="#7a5c2a" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="hero-search" class="form-input" placeholder="What are you looking for?" style="border:none;background:transparent;padding:0;font-size:14px;" />
+      </div>
+      <div style="width:160px;display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f8f2e6;border-radius:10px;">
+        <svg width="14" height="14" fill="none" stroke="#7a5c2a" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <select class="form-select" style="border:none;background:transparent;padding:0;font-size:13px;" id="hero-region">
+          <option value="">All Ethiopia</option>
+          <option>Addis Ababa</option><option>Somali Region</option><option>Oromia</option>
+          <option>Amhara</option><option>Tigray</option><option>Afar</option>
+          <option>Dire Dawa</option><option>Harari</option><option>Gambela</option>
+          <option>Benishangul-Gumuz</option><option>Sidama</option><option>South Ethiopia</option>
+          <option>Central Ethiopia</option><option>South West Ethiopia</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="doSearch()" style="padding:10px 24px;border-radius:10px;">Search</button>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section style="max-width:1280px;margin:0 auto;padding:60px 16px 20px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+      <div>
+        <h2 class="font-display" style="font-size:clamp(1.4rem,3vw,2rem);font-weight:700;">Browse by Category</h2>
+        <p style="color:#7a5c2a;font-size:14px;margin-top:4px;">Find exactly what you're looking for</p>
+      </div>
+      <button class="btn-outline" onclick="showPage('browse')" style="padding:8px 18px;font-size:13px;">View All →</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:12px;">
+      <div class="cat-card card-hover" onclick="filterCategory('jobs')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2563eb,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:20px;">💼</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">Jobs</div>
+        <div style="font-size:11px;color:#7a5c2a;">2.4k+</div>
+      </div>
+      <div class="cat-card card-hover" onclick="filterCategory('real-estate')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#16a34a,#15803d);display:flex;align-items:center;justify-content:center;font-size:20px;">🏠</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">Real Estate</div>
+        <div style="font-size:11px;color:#7a5c2a;">1.8k+</div>
+      </div>
+      <div class="cat-card card-hover" onclick="filterCategory('vehicles')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#d97706,#b45309);display:flex;align-items:center;justify-content:center;font-size:20px;">🚗</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">Vehicles</div>
+        <div style="font-size:11px;color:#7a5c2a;">900+</div>
+      </div>
+      <div class="cat-card card-hover" onclick="filterCategory('for-sale')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#6d28d9);display:flex;align-items:center;justify-content:center;font-size:20px;">🏷️</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">For Sale</div>
+        <div style="font-size:11px;color:#7a5c2a;">5.2k+</div>
+      </div>
+      <div class="cat-card card-hover" onclick="filterCategory('electronics')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#4f46e5,#4338ca);display:flex;align-items:center;justify-content:center;font-size:20px;">📱</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">Electronics</div>
+        <div style="font-size:11px;color:#7a5c2a;">3.1k+</div>
+      </div>
+      <div class="cat-card card-hover" onclick="filterCategory('services')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#c2410c);display:flex;align-items:center;justify-content:center;font-size:20px;">🔧</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">Services</div>
+        <div style="font-size:11px;color:#7a5c2a;">1.1k+</div>
+      </div>
+      <div class="cat-card card-hover" onclick="filterCategory('agriculture')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#65a30d,#4d7c0f);display:flex;align-items:center;justify-content:center;font-size:20px;">🌾</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">Agriculture</div>
+        <div style="font-size:11px;color:#7a5c2a;">650+</div>
+      </div>
+      <div class="cat-card card-hover" onclick="filterCategory('personals')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#db2777,#be185d);display:flex;align-items:center;justify-content:center;font-size:20px;">❤️</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">Personals</div>
+        <div style="font-size:11px;color:#7a5c2a;">340+</div>
+      </div>
+      <div class="cat-card card-hover" onclick="filterCategory('community')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#0891b2,#0e7490);display:flex;align-items:center;justify-content:center;font-size:20px;">👥</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">Community</div>
+        <div style="font-size:11px;color:#7a5c2a;">760+</div>
+      </div>
+      <div class="cat-card card-hover" onclick="filterCategory('education')">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#0284c7,#0369a1);display:flex;align-items:center;justify-content:center;font-size:20px;">🎓</div>
+        <div style="font-size:12px;font-weight:600;color:#1a0e00;">Education</div>
+        <div style="font-size:11px;color:#7a5c2a;">420+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ADS -->
+  <section style="background:linear-gradient(135deg,#fffbf0,#fff8e8);border-top:1px solid #f0e4c0;border-bottom:1px solid #f0e4c0;padding:40px 0;margin-top:20px;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#D4A017;display:flex;align-items:center;justify-content:center;">⚡</div>
+          <div>
+            <h2 class="font-display" style="font-size:1.4rem;font-weight:700;">Featured Ads</h2>
+            <p style="font-size:12px;color:#7a5c2a;">Boosted listings — top visibility</p>
+          </div>
+        </div>
+        <button class="btn-outline" onclick="showPage('browse')" style="padding:8px 16px;font-size:12px;">See All</button>
+      </div>
+      <div id="featured-ads-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;"></div>
+    </div>
+  </section>
+
+  <!-- LATEST JOBS -->
+  <section style="max-width:1280px;margin:0 auto;padding:48px 16px 20px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:10px;background:#2563eb;display:flex;align-items:center;justify-content:center;">💼</div>
+        <div>
+          <h2 class="font-display" style="font-size:1.4rem;font-weight:700;">Latest Jobs</h2>
+          <p style="font-size:12px;color:#7a5c2a;">Fresh vacancies across Ethiopia</p>
+        </div>
+      </div>
+      <button class="btn-outline" onclick="filterCategory('jobs')" style="padding:8px 16px;font-size:12px;color:#2563eb;border-color:#2563eb;">All Jobs →</button>
+    </div>
+    <div id="jobs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;"></div>
+  </section>
+
+  <!-- LATEST ADS -->
+  <section style="max-width:1280px;margin:0 auto;padding:40px 16px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+      <div>
+        <h2 class="font-display" style="font-size:1.4rem;font-weight:700;">Latest Ads</h2>
+        <p style="font-size:13px;color:#7a5c2a;margin-top:2px;">Fresh listings across all categories</p>
+      </div>
+      <button class="btn-outline" onclick="showPage('browse')" style="padding:8px 16px;font-size:12px;">Browse All →</button>
+    </div>
+    <div id="latest-ads-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;"></div>
+  </section>
+
+  <!-- WHY ETHIOHUB -->
+  <section style="background:linear-gradient(135deg,#0d3a0d,#1a5c1a);padding:60px 16px;margin-top:20px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <h2 class="font-display" style="font-size:clamp(1.6rem,3vw,2.2rem);color:white;margin-bottom:8px;">Why Choose EthioHub?</h2>
+        <p style="color:#a8d8a8;">Built for Ethiopia. Trusted by Ethiopians.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:28px;text-align:center;">
+          <div style="width:56px;height:56px;border-radius:16px;background:#D4A017;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px;">🛡️</div>
+          <h3 style="color:white;font-weight:700;margin-bottom:8px;">Safe & Verified</h3>
+          <p style="color:#a8d8a8;font-size:13px;line-height:1.6;">Phone verification required. Report suspicious ads instantly. Safe for all Ethiopians.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:28px;text-align:center;">
+          <div style="width:56px;height:56px;border-radius:16px;background:#D4A017;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px;">📈</div>
+          <h3 style="color:white;font-weight:700;margin-bottom:8px;">More Visibility</h3>
+          <p style="color:#a8d8a8;font-size:13px;line-height:1.6;">Boost with TeleBirr, eBirr, M-Pesa or USDT. Reach 10x more buyers in your region.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:28px;text-align:center;">
+          <div style="width:56px;height:56px;border-radius:16px;background:#D4A017;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px;">⭐</div>
+          <h3 style="color:white;font-weight:700;margin-bottom:8px;">Free to Post</h3>
+          <p style="color:#a8d8a8;font-size:13px;line-height:1.6;">Posting ads is completely free. Pay only if you want premium boosted visibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="max-width:1280px;margin:40px auto;padding:0 16px 40px;">
+    <div style="background:linear-gradient(135deg,#1a5c1a,#0d3a0d);border-radius:24px;padding:48px 32px;text-align:center;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;opacity:0.05;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;40&quot; height=&quot;40&quot;><circle cx=&quot;20&quot; cy=&quot;20&quot; r=&quot;2&quot; fill=&quot;white&quot;/></svg>');"></div>
+      <div style="position:relative;">
+        <h2 class="font-display" style="font-size:clamp(1.6rem,3vw,2.2rem);color:white;margin-bottom:12px;">Ready to post your first ad?</h2>
+        <p style="color:#a8d8a8;font-size:16px;margin-bottom:28px;">It takes less than 3 minutes. Completely free. 🇪🇹</p>
+        <button class="btn-secondary" onclick="showPage('post')" style="font-size:16px;padding:14px 36px;">Post Free Ad Now →</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════
+     BROWSE PAGE
+══════════════════════════════════════════ -->
+<div id="page-browse" style="display:none;">
+  <div style="max-width:1280px;margin:0 auto;padding:32px 16px;">
+    <h1 class="font-display" style="font-size:1.8rem;font-weight:700;margin-bottom:6px;" id="browse-title">Browse All Ads</h1>
+    <p style="color:#7a5c2a;font-size:13px;margin-bottom:20px;" id="browse-count">Loading ads...</p>
+
+    <!-- Filters bar -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;padding:16px;background:white;border:1.5px solid #e8dcc8;border-radius:14px;">
+      <input id="browse-search" class="form-input" placeholder="🔍 Search keywords..." style="flex:1;min-width:180px;max-width:300px;" oninput="renderBrowse()" />
+      <select id="browse-cat" class="form-select" style="width:160px;" onchange="renderBrowse()">
+        <option value="">All Categories</option>
+        <option value="jobs">💼 Jobs</option>
+        <option value="real-estate">🏠 Real Estate</option>
+        <option value="vehicles">🚗 Vehicles</option>
+        <option value="for-sale">🏷️ For Sale</option>
+        <option value="electronics">📱 Electronics</option>
+        <option value="services">🔧 Services</option>
+        <option value="agriculture">🌾 Agriculture</option>
+        <option value="personals">❤️ Personals</option>
+        <option value="community">👥 Community</option>
+        <option value="education">🎓 Education</option>
+      </select>
+      <select id="browse-region" class="form-select" style="width:180px;" onchange="renderBrowse()">
+        <option value="">📍 All Regions</option>
+        <option>Addis Ababa</option><option>Somali Region / Jijiga</option>
+        <option>Oromia</option><option>Amhara</option><option>Tigray</option>
+        <option>Afar</option><option>Dire Dawa</option><option>Harari</option>
+        <option>Gambela</option><option>Benishangul-Gumuz</option>
+        <option>Sidama</option><option>South Ethiopia</option>
+      </select>
+      <button onclick="resetBrowse()" style="padding:8px 16px;border-radius:10px;border:1.5px solid #e8dcc8;background:transparent;cursor:pointer;font-size:13px;color:#7a5c2a;">Clear ✕</button>
+      <button class="btn-primary" onclick="showPage('post')" style="padding:8px 18px;font-size:13px;margin-left:auto;">+ Post Ad</button>
+    </div>
+
+    <div id="browse-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;"></div>
+    <div id="browse-empty" style="display:none;text-align:center;padding:60px 20px;">
+      <div style="font-size:64px;margin-bottom:16px;">🔍</div>
+      <h3 class="font-display" style="font-size:1.3rem;margin-bottom:8px;">No ads found</h3>
+      <p style="color:#7a5c2a;margin-bottom:20px;">Try different keywords or clear filters</p>
+      <button class="btn-outline" onclick="resetBrowse()">Clear Filters</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     POST AD PAGE (6-step wizard)
+══════════════════════════════════════════ -->
+<div id="page-post" style="display:none;">
+  <div style="max-width:680px;margin:0 auto;padding:32px 16px;">
+    <div style="margin-bottom:28px;">
+      <h1 class="font-display" style="font-size:1.8rem;font-weight:700;">Post Your Ad</h1>
+      <p style="color:#7a5c2a;font-size:13px;margin-top:4px;">Free to post — reach thousands of Ethiopians 🇪🇹</p>
+    </div>
+
+    <!-- Step progress -->
+    <div style="display:flex;align-items:center;gap:4px;margin-bottom:28px;overflow-x:auto;padding-bottom:4px;">
+      <div id="step-1-indicator" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:#D4A017;color:#1a0e00;font-size:12px;font-weight:600;white-space:nowrap;">📂 Category</div>
+      <div style="flex:1;height:2px;background:#e8dcc8;min-width:8px;"></div>
+      <div id="step-2-indicator" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:#e8dcc8;color:#7a5c2a;font-size:12px;font-weight:600;white-space:nowrap;">📍 Location</div>
+      <div style="flex:1;height:2px;background:#e8dcc8;min-width:8px;"></div>
+      <div id="step-3-indicator" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:#e8dcc8;color:#7a5c2a;font-size:12px;font-weight:600;white-space:nowrap;">📝 Details</div>
+      <div style="flex:1;height:2px;background:#e8dcc8;min-width:8px;"></div>
+      <div id="step-4-indicator" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:#e8dcc8;color:#7a5c2a;font-size:12px;font-weight:600;white-space:nowrap;">📸 Photos</div>
+      <div style="flex:1;height:2px;background:#e8dcc8;min-width:8px;"></div>
+      <div id="step-5-indicator" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:#e8dcc8;color:#7a5c2a;font-size:12px;font-weight:600;white-space:nowrap;">📞 Contact</div>
+      <div style="flex:1;height:2px;background:#e8dcc8;min-width:8px;"></div>
+      <div id="step-6-indicator" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:#e8dcc8;color:#7a5c2a;font-size:12px;font-weight:600;white-space:nowrap;">👁 Preview</div>
+    </div>
+
+    <!-- Step panels -->
+    <div style="background:white;border:1.5px solid #e8dcc8;border-radius:18px;padding:24px;">
+      <div id="post-error" style="display:none;padding:12px 16px;background:#fff0f0;border:1.5px solid #fca5a5;border-radius:10px;color:#dc2626;font-size:13px;margin-bottom:16px;"></div>
+
+      <!-- STEP 1: Category -->
+      <div id="post-step-1">
+        <h2 class="font-display" style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Choose a Category</h2>
+        <p style="font-size:13px;color:#7a5c2a;margin-bottom:18px;">What are you selling or offering?</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;" id="category-picker"></div>
+      </div>
+
+      <!-- STEP 2: Location -->
+      <div id="post-step-2" style="display:none;">
+        <h2 class="font-display" style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Your Location</h2>
+        <p style="font-size:13px;color:#7a5c2a;margin-bottom:18px;">Help buyers find you with an exact location</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">🗺️ Region <span style="color:#C8102E;">*</span></label>
+            <select id="ad-region" class="form-select" onchange="loadZones()">
+              <option value="">— Select Region —</option>
+              <option>Addis Ababa</option><option>Afar</option><option>Amhara</option>
+              <option>Benishangul-Gumuz</option><option>Central Ethiopia</option><option>Dire Dawa</option>
+              <option>Gambela</option><option>Harari</option><option>Oromia</option>
+              <option>Sidama</option><option>Somali Region</option><option>South Ethiopia</option>
+              <option>South West Ethiopia</option><option>Tigray</option>
+            </select>
+          </div>
+          <div id="zone-row" style="display:none;">
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">🏙️ Zone / City</label>
+            <select id="ad-zone" class="form-select" onchange="loadWoredas()"><option value="">— Select Zone —</option></select>
+          </div>
+          <div id="woreda-row" style="display:none;">
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">📍 Woreda / District</label>
+            <select id="ad-woreda" class="form-select"><option value="">— Select Woreda —</option></select>
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">🏘️ Kebele / Street <span style="font-weight:400;color:#7a5c2a;">(optional)</span></label>
+            <input id="ad-kebele" class="form-input" placeholder="e.g. Kebele 03, Near the market" />
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Details -->
+      <div id="post-step-3" style="display:none;">
+        <h2 class="font-display" style="font-size:1.2rem;font-weight:700;margin-bottom:18px;">Ad Details</h2>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Title <span style="color:#C8102E;">*</span></label>
+            <input id="ad-title" class="form-input" placeholder="e.g. iPhone 15 Pro Max for Sale — Like New" maxlength="100" />
+            <div style="font-size:11px;color:#7a5c2a;margin-top:4px;">Be specific and clear. Good titles get more clicks.</div>
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Description <span style="color:#C8102E;">*</span></label>
+            <textarea id="ad-desc" class="form-input" rows="5" placeholder="Describe your ad in detail. Include condition, features, reason for selling, etc." style="resize:vertical;"></textarea>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Price (optional)</label>
+              <input id="ad-price" class="form-input" type="number" placeholder="Leave blank if negotiable" />
+            </div>
+            <div>
+              <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Currency</label>
+              <select id="ad-currency" class="form-select">
+                <option value="ETB">ETB (Birr)</option>
+                <option value="USD">USD ($)</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Condition</label>
+            <select id="ad-condition" class="form-select">
+              <option value="new">New</option>
+              <option value="used_like_new">Used – Like New</option>
+              <option value="used_good">Used – Good</option>
+              <option value="used_fair">Used – Fair</option>
+              <option value="not_applicable">Not Applicable (jobs/services)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Photos -->
+      <div id="post-step-4" style="display:none;">
+        <h2 class="font-display" style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Add Photos</h2>
+        <p style="font-size:13px;color:#7a5c2a;margin-bottom:18px;">Ads with photos get 3x more responses. Up to 8 photos.</p>
+        <div id="photo-dropzone" style="border:2px dashed #e8dcc8;border-radius:14px;padding:36px 20px;text-align:center;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('photo-input').click()" ondragover="event.preventDefault();this.style.borderColor='#1a5c1a'" ondragleave="this.style.borderColor='#e8dcc8'" ondrop="handleDrop(event)">
+          <div style="font-size:36px;margin-bottom:8px;">📸</div>
+          <p style="font-weight:600;color:#1a0e00;margin-bottom:4px;">Click to upload photos</p>
+          <p style="font-size:12px;color:#7a5c2a;">or drag & drop here</p>
+          <p style="font-size:11px;color:#a09070;margin-top:8px;">JPG, PNG, WebP — Max 5MB each</p>
+        </div>
+        <input id="photo-input" type="file" accept="image/*" multiple style="display:none;" onchange="previewPhotos(event)" />
+        <div id="photo-previews" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;"></div>
+        <div id="photo-count" style="font-size:12px;color:#7a5c2a;margin-top:8px;text-align:right;">0/8 photos</div>
+      </div>
+
+      <!-- STEP 5: Contact -->
+      <div id="post-step-5" style="display:none;">
+        <h2 class="font-display" style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Contact Details</h2>
+        <p style="font-size:13px;color:#7a5c2a;margin-bottom:18px;">How should buyers reach you?</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">🇪🇹 Phone Number <span style="color:#C8102E;">*</span></label>
+            <div style="position:relative;">
+              <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;">🇪🇹</span>
+              <input id="ad-phone" class="form-input" type="tel" placeholder="0911 234 567 or +251 911 234 567" style="padding-left:38px;border-color:#D4A017;" />
+            </div>
+            <div style="font-size:11px;color:#7a5c2a;margin-top:4px;">Ethiopian number required (09XX or +251XX format)</div>
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Your Name</label>
+            <input id="ad-name" class="form-input" placeholder="e.g. Abebe Bekele or Business Name" />
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Email <span style="font-weight:400;color:#7a5c2a;">(optional)</span></label>
+            <input id="ad-email" class="form-input" type="email" placeholder="your@email.com" />
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6: Preview -->
+      <div id="post-step-6" style="display:none;">
+        <h2 class="font-display" style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Preview & Publish</h2>
+        <p style="font-size:13px;color:#7a5c2a;margin-bottom:18px;">Review your ad before it goes live</p>
+        <div id="ad-preview-box" style="background:#f8f2e6;border:1.5px solid #e8dcc8;border-radius:14px;padding:20px;margin-bottom:16px;"></div>
+        <div style="background:#fffbf0;border:1.5px solid #f0e4c0;border-radius:12px;padding:14px;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-size:18px;">⚡</span>
+          <div>
+            <p style="font-weight:600;font-size:13px;color:#92400e;">Want more visibility?</p>
+            <p style="font-size:12px;color:#a16207;margin-top:2px;">After publishing, boost your ad with TeleBirr, eBirr, M-Pesa or USDT from your ad page.</p>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="publishAd()" id="publish-btn" style="width:100%;justify-content:center;padding:14px;font-size:15px;">🚀 Publish Ad Now</button>
+      </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <div style="display:flex;justify-content:space-between;margin-top:16px;" id="post-nav">
+      <button id="prev-btn" onclick="postPrev()" style="display:none;padding:10px 20px;border-radius:10px;border:1.5px solid #e8dcc8;background:transparent;cursor:pointer;font-weight:600;font-size:13px;">← Back</button>
+      <button id="next-btn" onclick="postNext()" class="btn-primary" style="margin-left:auto;padding:10px 24px;">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     AD DETAIL PAGE
+══════════════════════════════════════════ -->
+<div id="page-ad-detail" style="display:none;">
+  <div style="max-width:1280px;margin:0 auto;padding:24px 16px;">
+    <button onclick="history.back(); showPage('browse')" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;border:1.5px solid #e8dcc8;background:transparent;cursor:pointer;font-size:13px;margin-bottom:20px;">← Back to listings</button>
+    <div id="ad-detail-content"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer style="background:#0a1a0a;color:#c8d8c8;margin-top:40px;">
+  <div class="flag-stripe"></div>
+  <div style="max-width:1280px;margin:0 auto;padding:48px 16px 24px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;margin-bottom:40px;">
+
+      <!-- Brand -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#1a5c1a,#0d3a0d);display:flex;align-items:center;justify-content:center;">
+            <span style="color:#D4A017;font-weight:800;font-size:13px;">EH</span>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:18px;font-weight:700;color:white;line-height:1;">EthioHub</div>
+            <div style="font-size:9px;color:#7a9a7a;letter-spacing:2px;text-transform:uppercase;">Africa</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:#7a9a7a;line-height:1.7;margin-bottom:16px;">Ethiopia's most trusted classifieds platform. Buy, sell, find work, and connect with your community.</p>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;color:#7a9a7a;">
+          <span>📍 Addis Ababa, Ethiopia 🇪🇹</span>
+          <span>📱 +251 70 191 7732</span>
+          <span>✉️ baileandreasaheiltwoma@gmail.com</span>
+        </div>
+      </div>
+
+      <!-- Browse -->
+      <div>
+        <h4 style="color:white;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Browse</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="#" onclick="filterCategory('jobs')" style="color:#7a9a7a;text-decoration:none;font-size:13px;transition:color 0.2s;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#7a9a7a'">💼 Jobs</a>
+          <a href="#" onclick="filterCategory('real-estate')" style="color:#7a9a7a;text-decoration:none;font-size:13px;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#7a9a7a'">🏠 Real Estate</a>
+          <a href="#" onclick="filterCategory('vehicles')" style="color:#7a9a7a;text-decoration:none;font-size:13px;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#7a9a7a'">🚗 Vehicles</a>
+          <a href="#" onclick="filterCategory('for-sale')" style="color:#7a9a7a;text-decoration:none;font-size:13px;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#7a9a7a'">🏷️ For Sale</a>
+          <a href="#" onclick="filterCategory('electronics')" style="color:#7a9a7a;text-decoration:none;font-size:13px;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#7a9a7a'">📱 Electronics</a>
+        </div>
+      </div>
+
+      <!-- Account -->
+      <div>
+        <h4 style="color:white;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Account</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="#" onclick="showModal('register-modal')" style="color:#7a9a7a;text-decoration:none;font-size:13px;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#7a9a7a'">Sign Up Free</a>
+          <a href="#" onclick="showModal('login-modal')" style="color:#7a9a7a;text-decoration:none;font-size:13px;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#7a9a7a'">Sign In</a>
+          <a href="#" onclick="showPage('post')" style="color:#7a9a7a;text-decoration:none;font-size:13px;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#7a9a7a'">Post an Ad</a>
+          <a href="#" onclick="showBoostModal()" style="color:#7a9a7a;text-decoration:none;font-size:13px;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#7a9a7a'">Boost My Ad ⚡</a>
+        </div>
+      </div>
+
+      <!-- Payments -->
+      <div>
+        <h4 style="color:white;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Payments</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <span style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-size:12px;">📱 TeleBirr</span>
+          <span style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-size:12px;">💳 eBirr</span>
+          <span style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-size:12px;">🇰🇪 M-Pesa (Kenya)</span>
+          <span style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-size:12px;">₮ USDT Binance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regions -->
+    <div style="padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);margin-bottom:24px;">
+      <p style="font-size:11px;color:#4a6a4a;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">Popular Regions</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span onclick="filterRegion('Addis Ababa')" style="padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);font-size:12px;color:#7a9a7a;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#1a5c1a';this.style.color='#4ade80'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#7a9a7a'">Addis Ababa</span>
+        <span onclick="filterRegion('Jijiga')" style="padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);font-size:12px;color:#7a9a7a;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#1a5c1a';this.style.color='#4ade80'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#7a9a7a'">Jijiga (Somali)</span>
+        <span onclick="filterRegion('Amhara')" style="padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);font-size:12px;color:#7a9a7a;cursor:pointer;" onmouseover="this.style.borderColor='#1a5c1a';this.style.color='#4ade80'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#7a9a7a'">Bahir Dar</span>
+        <span onclick="filterRegion('Tigray')" style="padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);font-size:12px;color:#7a9a7a;cursor:pointer;" onmouseover="this.style.borderColor='#1a5c1a';this.style.color='#4ade80'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#7a9a7a'">Mekelle</span>
+        <span onclick="filterRegion('Oromia')" style="padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);font-size:12px;color:#7a9a7a;cursor:pointer;" onmouseover="this.style.borderColor='#1a5c1a';this.style.color='#4ade80'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#7a9a7a'">Adama</span>
+        <span onclick="filterRegion('Dire Dawa')" style="padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);font-size:12px;color:#7a9a7a;cursor:pointer;" onmouseover="this.style.borderColor='#1a5c1a';this.style.color='#4ade80'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#7a9a7a'">Dire Dawa</span>
+        <span onclick="filterRegion('Harari')" style="padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);font-size:12px;color:#7a9a7a;cursor:pointer;" onmouseover="this.style.borderColor='#1a5c1a';this.style.color='#4ade80'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#7a9a7a'">Harar</span>
+        <span onclick="filterRegion('Oromia')" style="padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);font-size:12px;color:#7a9a7a;cursor:pointer;" onmouseover="this.style.borderColor='#1a5c1a';this.style.color='#4ade80'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#7a9a7a'">Jimma</span>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:#4a6a4a;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;">
+      <span>© 2025 EthioHub Africa. All rights reserved.</span>
+      <span>Built with ❤️ for Ethiopia 🇪🇹 | 🔐 SSL Secured</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     MODALS
+══════════════════════════════════════════ -->
+
+<!-- Login Modal -->
+<div id="login-modal" style="display:none;position:fixed;inset:0;z-index:1000;" class="modal-backdrop" onclick="if(event.target===this)hideModal('login-modal')">
+  <div style="background:white;border-radius:20px;padding:32px;max-width:420px;width:calc(100% - 32px);margin:auto;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <div class="flag-stripe" style="border-radius:8px 8px 0 0;margin:-32px -32px 24px;"></div>
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#1a5c1a,#D4A017);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px;">🔐</div>
+      <h2 class="font-display" style="font-size:1.5rem;font-weight:700;">Welcome Back</h2>
+      <p style="font-size:13px;color:#7a5c2a;margin-top:4px;">Sign in to your EthioHub account</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Email Address</label>
+        <input id="login-email" class="form-input" type="email" placeholder="you@example.com" />
+      </div>
+      <div>
+        <label style="font-size:13px;font-weight:600;display:flex;justify-content:space-between;margin-bottom:6px;">
+          Password
+          <a href="#" style="color:#1a5c1a;font-weight:400;font-size:12px;">Forgot password?</a>
+        </label>
+        <input id="login-password" class="form-input" type="password" placeholder="Your password" />
+      </div>
+      <button class="btn-primary" onclick="doLogin()" style="width:100%;justify-content:center;padding:12px;font-size:14px;">Sign In →</button>
+      <p style="text-align:center;font-size:13px;color:#7a5c2a;">Don't have an account? <a href="#" onclick="hideModal('login-modal');showModal('register-modal')" style="color:#1a5c1a;font-weight:600;">Register Free</a></p>
+    </div>
+    <button onclick="hideModal('login-modal')" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;border:1.5px solid #e8dcc8;background:transparent;cursor:pointer;font-size:16px;">✕</button>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div id="register-modal" style="display:none;position:fixed;inset:0;z-index:1000;" class="modal-backdrop" onclick="if(event.target===this)hideModal('register-modal')">
+  <div style="background:white;border-radius:20px;padding:32px;max-width:440px;width:calc(100% - 32px);margin:auto;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;">
+    <div class="flag-stripe" style="border-radius:8px 8px 0 0;margin:-32px -32px 24px;"></div>
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:#e8f5e8;border:1px solid #c8e8c8;margin-bottom:12px;">
+        <span>⭐</span><span style="font-size:12px;color:#1a5c1a;font-weight:500;">Ethiopia's Trusted Marketplace</span>
+      </div>
+      <h2 class="font-display" style="font-size:1.5rem;font-weight:700;">Create Your Account</h2>
+      <p style="font-size:13px;color:#7a5c2a;margin-top:4px;">Join thousands of Ethiopians today</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Full Name</label>
+        <input id="reg-name" class="form-input" placeholder="e.g. Abebe Bekele" />
+      </div>
+      <div>
+        <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Email Address</label>
+        <input id="reg-email" class="form-input" type="email" placeholder="you@example.com" />
+      </div>
+      <div>
+        <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">
+          🇪🇹 Phone Number <span style="color:#D4A017;font-weight:400;font-size:11px;">(required for verification)</span>
+        </label>
+        <div style="position:relative;">
+          <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;">🇪🇹</span>
+          <input id="reg-phone" class="form-input" type="tel" placeholder="0911 234 567 or +251 911 234 567" style="padding-left:38px;border-color:#D4A017;" />
+        </div>
+        <div style="font-size:11px;color:#7a5c2a;margin-top:4px;">Format: 09XXXXXXXX or +251XXXXXXXXX</div>
+      </div>
+      <div>
+        <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Password</label>
+        <input id="reg-password" class="form-input" type="password" placeholder="Min. 8 characters" />
+      </div>
+      <button class="btn-primary" onclick="doRegister()" style="width:100%;justify-content:center;padding:12px;font-size:14px;">Create My Account →</button>
+      <p style="text-align:center;font-size:11px;color:#7a5c2a;">By registering you agree to our Terms of Service and Privacy Policy</p>
+      <p style="text-align:center;font-size:13px;color:#7a5c2a;">Already have an account? <a href="#" onclick="hideModal('register-modal');showModal('login-modal')" style="color:#1a5c1a;font-weight:600;">Sign In</a></p>
+    </div>
+    <button onclick="hideModal('register-modal')" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;border:1.5px solid #e8dcc8;background:transparent;cursor:pointer;font-size:16px;">✕</button>
+  </div>
+</div>
+
+<!-- Boost / Payment Modal -->
+<div id="boost-modal" style="display:none;position:fixed;inset:0;z-index:1000;" class="modal-backdrop" onclick="if(event.target===this)hideModal('boost-modal')">
+  <div style="background:white;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 32px);margin:auto;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;">
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#fffbf0,#fff4d0);border-radius:20px 20px 0 0;padding:20px 24px;border-bottom:1.5px solid #f0e4c0;display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <h2 class="font-display" style="font-size:1.2rem;font-weight:700;">⚡ Boost Your Ad</h2>
+        <p style="font-size:12px;color:#7a5c2a;margin-top:2px;" id="boost-ad-title">Get more visibility</p>
+      </div>
+      <button onclick="hideModal('boost-modal')" style="width:32px;height:32px;border-radius:8px;border:1.5px solid #e8dcc8;background:transparent;cursor:pointer;">✕</button>
+    </div>
+
+    <div style="padding:24px;" id="boost-content">
+
+      <!-- Step 1: Plans -->
+      <div id="boost-step-1">
+        <p style="font-size:13px;font-weight:600;margin-bottom:14px;">Choose a boost plan:</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="pay-card" id="plan-basic" onclick="selectPlan('basic')" style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:#dbeafe;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">⚡</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:14px;">Basic Boost <span style="font-size:11px;font-weight:400;color:#7a5c2a;">7 days</span></div>
+              <div style="font-size:12px;font-weight:700;color:#D4A017;">99 ETB · 250 KES · 1.5 USDT</div>
+              <div style="font-size:11px;color:#7a5c2a;">Pinned to top · 3x more visibility</div>
+            </div>
+          </div>
+          <div class="pay-card selected" id="plan-featured" onclick="selectPlan('featured')" style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:#fef3c7;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">⭐</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:14px;">Featured <span style="font-size:11px;font-weight:400;color:#7a5c2a;">14 days</span> <span style="font-size:10px;padding:2px 8px;background:#D4A017;color:#1a0e00;border-radius:10px;font-weight:700;">POPULAR</span></div>
+              <div style="font-size:12px;font-weight:700;color:#D4A017;">199 ETB · 500 KES · 3 USDT</div>
+              <div style="font-size:11px;color:#7a5c2a;">Homepage spotlight · 10x more visibility</div>
+            </div>
+          </div>
+          <div class="pay-card" id="plan-premium" onclick="selectPlan('premium')" style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:#f3e8ff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">👑</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:14px;">Premium <span style="font-size:11px;font-weight:400;color:#7a5c2a;">30 days</span></div>
+              <div style="font-size:12px;font-weight:700;color:#D4A017;">399 ETB · 1000 KES · 5.5 USDT</div>
+              <div style="font-size:11px;color:#7a5c2a;">Banner slot · Social promo · 25x visibility</div>
+            </div>
+          </div>
+        </div>
+        <button class="btn-secondary" onclick="boostNext(1)" style="width:100%;justify-content:center;padding:12px;margin-top:16px;font-size:14px;">Continue →</button>
+      </div>
+
+      <!-- Step 2: Payment Method -->
+      <div id="boost-step-2" style="display:none;">
+        <p style="font-size:13px;font-weight:600;margin-bottom:14px;">Select payment method:</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="pay-card" id="pay-telebirr" onclick="selectPayMethod('telebirr')" style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:28px;flex-shrink:0;">📱</span>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:14px;">TeleBirr</div>
+              <div style="font-size:12px;color:#7a5c2a;">Send to: <strong>0915346985</strong></div>
+            </div>
+          </div>
+          <div class="pay-card" id="pay-ebirr" onclick="selectPayMethod('ebirr')" style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:28px;flex-shrink:0;">💳</span>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:14px;">eBirr</div>
+              <div style="font-size:12px;color:#7a5c2a;">Send to: <strong>0915346985</strong></div>
+            </div>
+          </div>
+          <div class="pay-card" id="pay-mpesa" onclick="selectPayMethod('mpesa')" style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:28px;flex-shrink:0;">🇰🇪</span>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:14px;">M-Pesa (Safaricom)</div>
+              <div style="font-size:12px;color:#7a5c2a;">Store Number: <strong>689970</strong></div>
+            </div>
+          </div>
+          <div class="pay-card" id="pay-usdt" onclick="selectPayMethod('usdt')" style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:28px;flex-shrink:0;">₮</span>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:14px;">USDT (Binance BEP-20)</div>
+              <div style="font-size:12px;color:#7a5c2a;">BNB Smart Chain only</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:16px;">
+          <button class="btn-outline" onclick="boostBack(2)" style="flex:1;justify-content:center;padding:11px;">← Back</button>
+          <button class="btn-primary" onclick="boostNext(2)" style="flex:2;justify-content:center;padding:11px;">Pay Now →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Payment Instructions -->
+      <div id="boost-step-3" style="display:none;">
+        <div id="payment-instructions"></div>
+        <div style="display:flex;gap:8px;margin-top:16px;">
+          <button class="btn-outline" onclick="boostBack(3)" style="flex:1;justify-content:center;padding:11px;">← Back</button>
+          <button class="btn-primary" onclick="boostNext(3)" style="flex:2;justify-content:center;padding:11px;">I've Paid →</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Verify -->
+      <div id="boost-step-4" style="display:none;">
+        <div style="text-align:center;margin-bottom:20px;">
+          <div style="width:56px;height:56px;border-radius:50%;background:#e8f5e8;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px;">✅</div>
+          <h3 class="font-display" style="font-size:1.1rem;font-weight:700;">Verify Your Payment</h3>
+          <p style="font-size:13px;color:#7a5c2a;margin-top:6px;">Paste the transaction code from your payment receipt</p>
+        </div>
+        <div>
+          <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;" id="txref-label">Transaction Reference Code</label>
+          <input id="tx-ref-input" class="form-input" placeholder="e.g. TLB20241234XXXX" style="font-family:monospace;letter-spacing:1px;" />
+          <p style="font-size:11px;color:#7a5c2a;margin-top:6px;">Copy the confirmation code/hash from your receipt and paste it here. Your boost activates automatically.</p>
+        </div>
+        <div id="boost-verify-error" style="display:none;padding:10px;background:#fff0f0;border:1px solid #fca5a5;border-radius:8px;color:#dc2626;font-size:12px;margin-top:10px;"></div>
+        <div style="display:flex;gap:8px;margin-top:16px;">
+          <button class="btn-outline" onclick="boostBack(4)" style="flex:1;justify-content:center;padding:11px;">← Back</button>
+          <button class="btn-primary" onclick="verifyBoostPayment()" style="flex:2;justify-content:center;padding:11px;" id="verify-btn">Activate Boost ⚡</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Success -->
+      <div id="boost-step-5" style="display:none;text-align:center;padding:12px 0;">
+        <div style="font-size:56px;margin-bottom:16px;">🎉</div>
+        <h3 class="font-display" style="font-size:1.4rem;font-weight:700;margin-bottom:8px;">Boost Activated!</h3>
+        <p style="color:#7a5c2a;font-size:13px;margin-bottom:20px;">Your ad is now boosted and will appear at the top of search results and category pages!</p>
+        <div style="padding:14px;background:#e8f5e8;border:1.5px solid #c8e8c8;border-radius:12px;margin-bottom:20px;font-size:13px;color:#1a5c1a;font-weight:500;">
+          ✅ Expect significantly more views starting now!
+        </div>
+        <button class="btn-primary" onclick="hideModal('boost-modal')" style="width:100%;justify-content:center;padding:12px;">Done — View My Ad</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── DATA ────────────────────────────────────────────
+const LOCATIONS = {
+  'Addis Ababa': ['Addis Ketema','Akaky Kaliti','Arada','Bole','Gullele','Kirkos','Kolfe Keranio','Lideta','Nifas Silk-Lafto','Yeka'],
+  'Somali Region': ['Fafan Zone','Siti Zone','Jarar Zone','Korahe Zone','Nogob Zone','Dollo Zone','Afder Zone','Liben Zone'],
+  'Oromia': ['East Hararghe','West Hararghe','Arsi Zone','Bale Zone','East Shewa','West Shewa','Jimma Zone','Guji Zone','Borena Zone'],
+  'Amhara': ['Bahir Dar','North Gondar','South Gondar','North Wollo','South Wollo','East Gojjam','West Gojjam'],
+  'Tigray': ['Mekelle','Central Tigray','Eastern Tigray','Southern Tigray','Western Tigray'],
+  'Afar': ['Zone 1 (Awsi Rasu)','Zone 2 (Kilbati)','Zone 3 (Gabi)','Zone 4 (Fantana)','Zone 5 (Hari)'],
+  'Harari': ['Harar City','Harar Woreda','Babile District'],
+  'Dire Dawa': ['Dire Dawa Urban','Dire Dawa Rural'],
+  'Gambela': ['Gambela Town','Agnewak Zone','Nuer Zone'],
+  'Benishangul-Gumuz': ['Asosa Zone','Metekel Zone','Kamashi Zone'],
+  'Sidama': ['Hawassa City','Sidama Zone'],
+  'South Ethiopia': ['Wolaita Zone','Konso Zone','Gurage Zone'],
+  'Central Ethiopia': ['Silte Zone','Hadiya Zone'],
+  'South West Ethiopia': ['Bench Sheko','Dawro Zone']
+}
+
+const WOREDAS = {
+  'Fafan Zone': ['Jijiga','Babile','Gursum','Haramaya','Ararso','Jinacsani','Aware','Harshin','Dembel','Kebri Beyah'],
+  'Bole': ['Bole 01','Bole 02','Bole 03','Bole 04','Bole 05','Bole Bulbulo','CMC','Ayat'],
+  'Mekelle': ['Adi Haki','Ayder','Hawelti','Kedamay Weyane','Quiha','Semien','Hadnet'],
+  'Harar City': ['Amir Kebele','Erer Kebele','Gey Kebele','Jegol (Old Town)','Hakim Kebele'],
+}
+
+const SAMPLE_ADS = [
+  { id:1, title:'Software Developer Wanted – Addis Ababa', category:'jobs', region:'Addis Ababa', price:null, currency:'ETB', desc:'We are looking for a skilled React/Node.js developer with 3+ years experience. Remote work possible. Competitive salary package.', phone:'0911234567', name:'Tech Ethiopia PLC', featured:true, boosted:true, emoji:'💼', days:2 },
+  { id:2, title:'3-Bedroom House for Rent – Bole', category:'real-estate', region:'Addis Ababa', price:25000, currency:'ETB', desc:'Spacious 3-bedroom house in Bole sub-city. Modern kitchen, 2 bathrooms, parking. Available immediately. Near Bole road.', phone:'0922345678', name:'Selam Properties', featured:true, boosted:false, emoji:'🏠', days:1 },
+  { id:3, title:'Toyota Land Cruiser 2019 – Low Mileage', category:'vehicles', region:'Addis Ababa', price:4200000, currency:'ETB', desc:'2019 Toyota Land Cruiser V8. Excellent condition. 60,000km only. Full service history. Custom interior. Ready for handover.', phone:'0933456789', name:'Dawit Auto', featured:false, boosted:true, emoji:'🚗', days:3 },
+  { id:4, title:'iPhone 15 Pro Max 256GB – Brand New', category:'electronics', region:'Addis Ababa', price:165000, currency:'ETB', desc:'iPhone 15 Pro Max 256GB Natural Titanium. Still sealed in original box. All accessories included. 1-year warranty.', phone:'0944567890', name:'Hana Mobile', featured:true, boosted:true, emoji:'📱', days:0 },
+  { id:5, title:'Nursing Job – Jijiga Regional Hospital', category:'jobs', region:'Somali Region', price:null, currency:'ETB', desc:'Jijiga Regional Hospital is hiring qualified nurses. Competitive salary, housing allowance, medical benefits. Apply with CV.', phone:'+251701917732', name:'Jijiga Hospital HR', featured:false, boosted:false, emoji:'💉', days:1 },
+  { id:6, title:'Commercial Land for Sale – Harar Road', category:'real-estate', region:'Somali Region', price:800000, currency:'ETB', desc:'800m² commercial land on Harar Road, Jijiga. Great location for business. All documents ready. Serious buyers only.', phone:'+251701917732', name:'Fafan Investments', featured:false, boosted:false, emoji:'🏗️', days:4 },
+  { id:7, title:'Bajaj RE Three-Wheeler – Good Condition', category:'vehicles', region:'Oromia', price:180000, currency:'ETB', desc:'2021 Bajaj RE three-wheeler taxi. 95,000km. Engine recently overhauled. Ready for work. All documents valid.', phone:'0955678901', name:'Adama Motors', featured:false, boosted:false, emoji:'🛺', days:2 },
+  { id:8, title:'General Manager Needed – Bahir Dar', category:'jobs', region:'Amhara', price:null, currency:'ETB', desc:'Manufacturing company seeking experienced GM. 10+ years management experience required. BA/MBA preferred. Attractive package.', phone:'0966789012', name:'Tana Industries', featured:false, boosted:false, emoji:'👔', days:5 },
+  { id:9, title:'Samsung Galaxy S24 Ultra – Sealed', category:'electronics', region:'Addis Ababa', price:145000, currency:'ETB', desc:'Samsung Galaxy S24 Ultra 512GB. Brand new sealed. Titanium Gray. Includes original charger and S Pen. Imported from Dubai.', phone:'0977890123', name:'Galaxy Store ET', featured:false, boosted:false, emoji:'📱', days:1 },
+  { id:10, title:'English Tutor – Online & In-Person', category:'education', region:'Addis Ababa', price:500, currency:'ETB', desc:'Experienced English tutor for all levels. IELTS/TOEFL preparation. University entrance exam coaching. 500 ETB/session.', phone:'0988901234', name:'Tigist Haile', featured:false, boosted:false, emoji:'📚', days:3 },
+  { id:11, title:'Teff & Wheat – Direct from Farm', category:'agriculture', region:'Amhara', price:3500, currency:'ETB', desc:'Fresh teff and wheat from Gojjam farms. Bulk orders available. Per quintal pricing. Free delivery for orders 10+ quintals.', phone:'0909012345', name:'Gojjam Harvest', featured:false, boosted:false, emoji:'🌾', days:2 },
+  { id:12, title:'Car Mechanic Service – Mobile', category:'services', region:'Addis Ababa', price:500, currency:'ETB', desc:'Professional mobile mechanic. Engine diagnostics, oil change, brake service, electrical repairs. Come to your location.', phone:'0910123456', name:'Mobile Fix ET', featured:false, boosted:false, emoji:'🔧', days:0 },
+  { id:13, title:'2-Room Apartment – Mekelle City Center', category:'real-estate', region:'Tigray', price:8000, currency:'ETB', desc:'Clean 2-room apartment in Mekelle. Ground floor. Running water, electricity. Near Axum Hotel. Available now.', phone:'0921234567', name:'Tigray Realty', featured:false, boosted:false, emoji:'🏢', days:6 },
+  { id:14, title:'NGO Driver Needed – Dire Dawa', category:'jobs', region:'Dire Dawa', price:null, currency:'ETB', desc:'International NGO hiring experienced driver. Valid license, 5+ years experience. Knowledge of Eastern Ethiopia roads required.', phone:'0932345678', name:'INGO East Africa', featured:false, boosted:false, emoji:'🚙', days:1 },
+  { id:15, title:'MacBook Pro M3 – 14 inch', category:'electronics', region:'Addis Ababa', price:280000, currency:'ETB', desc:'MacBook Pro M3 14-inch, 16GB RAM, 512GB SSD. Space Gray. 6 months old, excellent condition. Original accessories included.', phone:'0943456789', name:'Apple ET', featured:false, boosted:false, emoji:'💻', days:2 },
+  { id:16, title:'Hairdresser & Beautician – Harar', category:'services', region:'Harari', price:200, currency:'ETB', desc:'Professional hairdresser in Harar. Specializing in traditional and modern styles. Braiding, hair treatment, and more.', phone:'0954567890', name:'Beauty Harar', featured:false, boosted:false, emoji:'💇', days:4 },
+]
+
+// ── STATE ────────────────────────────────────────────
+let currentPage = 'home'
+let currentStep = 1
+let selectedCategory = null
+let boostStep = 1
+let selectedPlan = 'featured'
+let selectedPayMethod = null
+let adPhotos = []
+let newAdData = {}
+let darkMode = false
+let allAds = [...SAMPLE_ADS]
+
+// ── INIT ─────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderCategoryPicker()
+  renderHomeAds()
+  renderBrowse()
+  checkDark()
+})
+
+function checkDark() {
+  if (localStorage.getItem('eh-dark') === '1') {
+    darkMode = true
+    document.body.classList.add('dark')
+    document.getElementById('dark-toggle').textContent = '☀️'
+  }
+}
+
+function toggleDark() {
+  darkMode = !darkMode
+  document.body.classList.toggle('dark', darkMode)
+  document.getElementById('dark-toggle').textContent = darkMode ? '☀️' : '🌙'
+  localStorage.setItem('eh-dark', darkMode ? '1' : '0')
+}
+
+// ── PAGE NAVIGATION ───────────────────────────────────
+function showPage(p) {
+  ['home','browse','post','ad-detail'].forEach(id => {
+    document.getElementById('page-' + id).style.display = id === p ? 'block' : 'none'
+  })
+  currentPage = p
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+  if (p === 'browse') renderBrowse()
+}
+
+function toggleMobileMenu() {
+  const m = document.getElementById('mobile-menu')
+  m.style.display = m.style.display === 'none' ? 'block' : 'none'
+}
+
+// ── MODAL ─────────────────────────────────────────────
+function showModal(id) { document.getElementById(id).style.display = 'flex' }
+function hideModal(id) { document.getElementById(id).style.display = 'none' }
+
+// ── TOAST ─────────────────────────────────────────────
+function showToast(msg, color) {
+  const t = document.getElementById('toast')
+  document.getElementById('toast-msg').textContent = msg
+  t.style.background = color || '#1a5c1a'
+  t.classList.add('show')
+  setTimeout(() => t.classList.remove('show'), 3500)
+}
+
+// ── HOME ADS RENDER ───────────────────────────────────
+function renderHomeAds() {
+  const featured = allAds.filter(a => a.featured || a.boosted).slice(0, 6)
+  const jobs = allAds.filter(a => a.category === 'jobs').slice(0, 6)
+  const latest = [...allAds].sort((a,b) => a.days - b.days).slice(0, 12)
+
+  document.getElementById('featured-ads-grid').innerHTML = featured.map(renderAdCard).join('')
+  document.getElementById('jobs-grid').innerHTML = jobs.map(renderJobCard).join('')
+  document.getElementById('latest-ads-grid').innerHTML = latest.map(renderAdCard).join('')
+}
+
+function renderAdCard(ad) {
+  const badge = ad.featured
+    ? `<span style="position:absolute;top:8px;left:8px;padding:3px 10px;border-radius:20px;background:#D4A017;color:#1a0e00;font-size:10px;font-weight:700;">⭐ Featured</span>`
+    : ad.boosted
+    ? `<span style="position:absolute;top:8px;left:8px;padding:3px 10px;border-radius:20px;background:#2563eb;color:white;font-size:10px;font-weight:700;">⚡ Boosted</span>`
+    : ''
+  return `
+    <div class="ad-card" onclick="showAdDetail(${ad.id})">
+      <div style="position:relative;">
+        <div class="ad-img">${ad.emoji}</div>
+        ${badge}
+        <span style="position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:12px;background:rgba(0,0,0,0.5);color:white;font-size:10px;">${getCatLabel(ad.category)}</span>
+      </div>
+      <div style="padding:12px;">
+        <h3 style="font-size:13px;font-weight:600;line-height:1.4;margin-bottom:6px;color:#1a0e00;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ad.title}</h3>
+        ${ad.price ? `<p style="font-size:15px;font-weight:700;color:#1a5c1a;margin-bottom:6px;">${ad.currency} ${ad.price.toLocaleString()}</p>` : `<p style="font-size:13px;color:#7a5c2a;margin-bottom:6px;">Price negotiable</p>`}
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:#7a5c2a;">
+          <span>📍 ${ad.region}</span>
+          <span>${ad.days === 0 ? 'Today' : ad.days + 'd ago'}</span>
+        </div>
+      </div>
+    </div>`
+}
+
+function renderJobCard(ad) {
+  return `
+    <div style="background:white;border:1.5px solid #e8dcc8;border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onclick="showAdDetail(${ad.id})" onmouseover="this.style.borderColor='#2563eb';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e8dcc8';this.style.transform='none'">
+      <div style="display:flex;justify-content:space-between;align-items:start;gap:8px;">
+        <div style="flex:1;">
+          <h3 style="font-size:14px;font-weight:600;margin-bottom:6px;color:#1a0e00;">${ad.title}</h3>
+          <div style="display:flex;gap:12px;font-size:11px;color:#7a5c2a;">
+            <span>📍 ${ad.region}</span>
+            <span>🕐 ${ad.days === 0 ? 'Today' : ad.days + 'd ago'}</span>
+          </div>
+        </div>
+        ${ad.price ? `<span style="padding:4px 10px;background:#e8f5e8;color:#1a5c1a;border-radius:8px;font-size:11px;font-weight:700;white-space:nowrap;">${ad.currency} ${ad.price.toLocaleString()}</span>` : `<span style="padding:4px 10px;background:#e8f0ff;color:#2563eb;border-radius:8px;font-size:11px;white-space:nowrap;">Negotiable</span>`}
+      </div>
+    </div>`
+}
+
+function getCatLabel(slug) {
+  const map = { jobs:'💼 Jobs', 'real-estate':'🏠 Real Estate', vehicles:'🚗 Vehicles', 'for-sale':'🏷️ For Sale', electronics:'📱 Electronics', services:'🔧 Services', agriculture:'🌾 Agriculture', personals:'❤️ Personals', community:'👥 Community', education:'🎓 Education' }
+  return map[slug] || slug
+}
+
+// ── BROWSE ────────────────────────────────────────────
+function renderBrowse() {
+  const q = (document.getElementById('browse-search')?.value || '').toLowerCase()
+  const cat = document.getElementById('browse-cat')?.value || ''
+  const region = document.getElementById('browse-region')?.value || ''
+
+  let filtered = allAds.filter(ad => {
+    if (q && !ad.title.toLowerCase().includes(q) && !ad.desc.toLowerCase().includes(q)) return false
+    if (cat && ad.category !== cat) return false
+    if (region && !ad.region.toLowerCase().includes(region.toLowerCase())) return false
+    return true
+  })
+
+  filtered.sort((a,b) => (b.featured?2:0)+(b.boosted?1:0) - ((a.featured?2:0)+(a.boosted?1:0)) || a.days - b.days)
+
+  const title = cat ? getCatLabel(cat) : q ? `Results for "${q}"` : 'Browse All Ads'
+  if (document.getElementById('browse-title')) document.getElementById('browse-title').textContent = title
+  if (document.getElementById('browse-count')) document.getElementById('browse-count').textContent = `${filtered.length} ads found`
+
+  const grid = document.getElementById('browse-grid')
+  const empty = document.getElementById('browse-empty')
+  if (!grid) return
+
+  if (!filtered.length) {
+    grid.style.display = 'none'
+    empty.style.display = 'block'
+  } else {
+    grid.style.display = 'grid'
+    empty.style.display = 'none'
+    grid.innerHTML = filtered.map(renderAdCard).join('')
+  }
+}
+
+function resetBrowse() {
+  document.getElementById('browse-search').value = ''
+  document.getElementById('browse-cat').value = ''
+  document.getElementById('browse-region').value = ''
+  renderBrowse()
+}
+
+function filterCategory(cat) {
+  showPage('browse')
+  setTimeout(() => {
+    document.getElementById('browse-cat').value = cat
+    renderBrowse()
+  }, 50)
+}
+
+function filterRegion(region) {
+  showPage('browse')
+  setTimeout(() => {
+    document.getElementById('browse-region').value = region
+    renderBrowse()
+  }, 50)
+}
+
+function doSearch() {
+  showPage('browse')
+  const q = document.getElementById('hero-search').value
+  const region = document.getElementById('hero-region').value
+  setTimeout(() => {
+    if (q) document.getElementById('browse-search').value = q
+    if (region) document.getElementById('browse-region').value = region
+    renderBrowse()
+  }, 50)
+}
+
+// ── AD DETAIL ─────────────────────────────────────────
+function showAdDetail(id) {
+  const ad = allAds.find(a => a.id === id)
+  if (!ad) return
+  document.getElementById('ad-detail-content').innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr;gap:24px;max-width:900px;">
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start;" class="ad-detail-grid">
+        <!-- Main -->
+        <div>
+          <div style="background:white;border:1.5px solid #e8dcc8;border-radius:18px;overflow:hidden;margin-bottom:20px;">
+            <div style="height:320px;background:linear-gradient(135deg,#e8dcc8,#d4c4a0);display:flex;align-items:center;justify-content:center;font-size:100px;position:relative;">
+              ${ad.emoji}
+              ${ad.featured ? `<span style="position:absolute;top:12px;left:12px;padding:5px 14px;border-radius:20px;background:#D4A017;color:#1a0e00;font-size:12px;font-weight:700;">⭐ Featured</span>` : ''}
+              ${ad.boosted && !ad.featured ? `<span style="position:absolute;top:12px;left:12px;padding:5px 14px;border-radius:20px;background:#2563eb;color:white;font-size:12px;font-weight:700;">⚡ Boosted</span>` : ''}
+            </div>
+          </div>
+          <div style="background:white;border:1.5px solid #e8dcc8;border-radius:18px;padding:24px;">
+            <h1 class="font-display" style="font-size:1.6rem;font-weight:700;margin-bottom:12px;">${ad.title}</h1>
+            ${ad.price ? `<p style="font-size:2rem;font-weight:800;color:#1a5c1a;margin-bottom:16px;">${ad.currency} ${ad.price.toLocaleString()}</p>` : `<p style="font-size:1.1rem;color:#7a5c2a;margin-bottom:16px;">Price: Negotiable</p>`}
+            <div style="display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:#7a5c2a;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #f0e8d8;">
+              <span>📍 ${ad.region}</span>
+              <span>📂 ${getCatLabel(ad.category)}</span>
+              <span>🕐 ${ad.days === 0 ? 'Today' : ad.days + ' days ago'}</span>
+              <span>👁 ${Math.floor(Math.random()*500)+50} views</span>
+            </div>
+            <h3 style="font-weight:700;margin-bottom:10px;">Description</h3>
+            <p style="font-size:14px;color:#4a3a20;line-height:1.8;">${ad.desc}</p>
+          </div>
+        </div>
+        <!-- Sidebar -->
+        <div style="position:sticky;top:80px;">
+          <div style="background:white;border:1.5px solid #e8dcc8;border-radius:18px;padding:20px;margin-bottom:16px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #f0e8d8;">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a5c1a,#D4A017);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;">${ad.name[0]}</div>
+              <div>
+                <p style="font-weight:700;font-size:14px;">${ad.name}</p>
+                <p style="font-size:12px;color:#1a5c1a;">🛡️ Verified Seller</p>
+              </div>
+            </div>
+            <button class="btn-primary" onclick="revealPhone(this,'${ad.phone}')" style="width:100%;justify-content:center;padding:13px;margin-bottom:10px;font-size:14px;">📞 Show Phone Number</button>
+            <a href="https://wa.me/${ad.phone.replace(/\D/g,'')}?text=Hi, I saw your ad '${encodeURIComponent(ad.title)}' on EthioHub. Is it still available?" target="_blank" style="text-decoration:none;">
+              <button class="btn-outline" style="width:100%;justify-content:center;padding:11px;margin-bottom:10px;font-size:13px;color:#16a34a;border-color:#16a34a;">💬 WhatsApp Seller</button>
+            </a>
+            <div style="background:#fffbf0;border:1px solid #f0e4c0;border-radius:10px;padding:12px;font-size:12px;">
+              <p style="font-weight:700;color:#92400e;margin-bottom:6px;">🛡️ Safety Tips</p>
+              <ul style="color:#a16207;padding-left:14px;line-height:1.8;">
+                <li>Meet in a public place</li>
+                <li>Don't send money upfront</li>
+                <li>Verify item before paying</li>
+              </ul>
+            </div>
+          </div>
+          <div style="background:#fffbf0;border:1.5px solid #f0e4c0;border-radius:14px;padding:16px;text-align:center;">
+            <div style="font-size:24px;margin-bottom:8px;">⚡</div>
+            <p style="font-weight:700;font-size:13px;margin-bottom:4px;">Boost this ad</p>
+            <p style="font-size:12px;color:#7a5c2a;margin-bottom:12px;">Get 10x more visibility from 99 ETB</p>
+            <button onclick="showBoostModal('${ad.title}')" class="btn-secondary" style="width:100%;justify-content:center;padding:10px;font-size:13px;">⚡ Boost Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      @media (max-width: 700px) {
+        .ad-detail-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>`
+  showPage('ad-detail')
+}
+
+function revealPhone(btn, phone) {
+  btn.innerHTML = `📞 ${phone}`
+  btn.style.background = '#145014'
+  showToast('Phone number revealed!', '#1a5c1a')
+}
+
+// ── POST AD WIZARD ────────────────────────────────────
+const CATEGORIES = [
+  { id:'jobs', label:'Jobs', emoji:'💼' },
+  { id:'real-estate', label:'Real Estate', emoji:'🏠' },
+  { id:'vehicles', label:'Vehicles', emoji:'🚗' },
+  { id:'for-sale', label:'For Sale', emoji:'🏷️' },
+  { id:'electronics', label:'Electronics', emoji:'📱' },
+  { id:'services', label:'Services', emoji:'🔧' },
+  { id:'agriculture', label:'Agriculture', emoji:'🌾' },
+  { id:'personals', label:'Personals', emoji:'❤️' },
+  { id:'community', label:'Community', emoji:'👥' },
+  { id:'education', label:'Education', emoji:'🎓' },
+  { id:'fashion', label:'Fashion', emoji:'👗' },
+  { id:'business', label:'Business', emoji:'🏢' },
+]
+
+function renderCategoryPicker() {
+  const grid = document.getElementById('category-picker')
+  if (!grid) return
+  grid.innerHTML = CATEGORIES.map(c => `
+    <div onclick="selectCat('${c.id}', this)" style="border:2px solid #e8dcc8;border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;transition:all 0.15s;" id="cat-btn-${c.id}">
+      <div style="font-size:26px;margin-bottom:6px;">${c.emoji}</div>
+      <div style="font-size:12px;font-weight:600;color:#1a0e00;">${c.label}</div>
+    </div>`).join('')
+}
+
+function selectCat(id, el) {
+  document.querySelectorAll('#category-picker > div').forEach(d => {
+    d.style.borderColor = '#e8dcc8'
+    d.style.background = 'white'
+  })
+  el.style.borderColor = '#1a5c1a'
+  el.style.background = '#e8f5e8'
+  selectedCategory = id
+  clearPostError()
+}
+
+function updateStepIndicators(step) {
+  for (let i = 1; i <= 6; i++) {
+    const el = document.getElementById(`step-${i}-indicator`)
+    if (!el) continue
+    if (i < step) {
+      el.style.background = '#c8e8c8'
+      el.style.color = '#1a5c1a'
+    } else if (i === step) {
+      el.style.background = '#D4A017'
+      el.style.color = '#1a0e00'
+    } else {
+      el.style.background = '#e8dcc8'
+      el.style.color = '#7a5c2a'
+    }
+  }
+}
+
+function postNext() {
+  const err = validatePostStep(currentStep)
+  if (err) { showPostError(err); return }
+  clearPostError()
+  document.getElementById(`post-step-${currentStep}`).style.display = 'none'
+  currentStep++
+  document.getElementById(`post-step-${currentStep}`).style.display = 'block'
+  document.getElementById('prev-btn').style.display = currentStep > 1 ? 'block' : 'none'
+  if (currentStep === 6) {
+    document.getElementById('next-btn').style.display = 'none'
+    buildPreview()
+  }
+  updateStepIndicators(currentStep)
+  window.scrollTo({ top: 200, behavior: 'smooth' })
+}
+
+function postPrev() {
+  if (currentStep === 1) return
+  document.getElementById(`post-step-${currentStep}`).style.display = 'none'
+  currentStep--
+  document.getElementById(`post-step-${currentStep}`).style.display = 'block'
+  document.getElementById('prev-btn').style.display = currentStep > 1 ? 'block' : 'none'
+  document.getElementById('next-btn').style.display = currentStep < 6 ? 'block' : 'none'
+  updateStepIndicators(currentStep)
+  clearPostError()
+}
+
+function validatePostStep(step) {
+  if (step === 1 && !selectedCategory) return 'Please select a category to continue.'
+  if (step === 2 && !document.getElementById('ad-region').value) return 'Please select at least your region.'
+  if (step === 3) {
+    if (!document.getElementById('ad-title').value.trim()) return 'Please enter a title for your ad.'
+    if (document.getElementById('ad-title').value.trim().length < 5) return 'Title must be at least 5 characters.'
+    if (!document.getElementById('ad-desc').value.trim()) return 'Please write a description.'
+    if (document.getElementById('ad-desc').value.trim().length < 20) return 'Description must be at least 20 characters.'
+  }
+  if (step === 5) {
+    const phone = document.getElementById('ad-phone').value.trim()
+    if (!phone) return 'Please enter your Ethiopian phone number.'
+    if (!/^(\+251[79]\d{8}|0[79]\d{8})$/.test(phone)) return 'Enter a valid Ethiopian phone: 09XXXXXXXX or +251XXXXXXXXX'
+  }
+  return null
+}
+
+function showPostError(msg) {
+  const e = document.getElementById('post-error')
+  e.textContent = '⚠️ ' + msg
+  e.style.display = 'block'
+}
+
+function clearPostError() {
+  document.getElementById('post-error').style.display = 'none'
+}
+
+function loadZones() {
+  const region = document.getElementById('ad-region').value
+  const zoneRow = document.getElementById('zone-row')
+  const zoneSelect = document.getElementById('ad-zone')
+  if (region && LOCATIONS[region]) {
+    zoneSelect.innerHTML = '<option value="">— Select Zone/City —</option>' +
+      LOCATIONS[region].map(z => `<option>${z}</option>`).join('')
+    zoneRow.style.display = 'block'
+  } else {
+    zoneRow.style.display = 'none'
+    document.getElementById('woreda-row').style.display = 'none'
+  }
+}
+
+function loadWoredas() {
+  const zone = document.getElementById('ad-zone').value
+  const woredaRow = document.getElementById('woreda-row')
+  const woredaSelect = document.getElementById('ad-woreda')
+  if (zone && WOREDAS[zone]) {
+    woredaSelect.innerHTML = '<option value="">— Select Woreda —</option>' +
+      WOREDAS[zone].map(w => `<option>${w}</option>`).join('')
+    woredaRow.style.display = 'block'
+  } else {
+    woredaRow.style.display = 'none'
+  }
+}
+
+function previewPhotos(event) {
+  const files = Array.from(event.target.files)
+  if (adPhotos.length + files.length > 8) { showToast('Maximum 8 photos allowed', '#C8102E'); return }
+  files.forEach(f => {
+    const reader = new FileReader()
+    reader.onload = e => {
+      adPhotos.push(e.target.result)
+      updatePhotoPreview()
+    }
+    reader.readAsDataURL(f)
+  })
+}
+
+function handleDrop(e) {
+  e.preventDefault()
+  document.getElementById('photo-dropzone').style.borderColor = '#e8dcc8'
+  const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'))
+  if (!files.length) return
+  const input = document.getElementById('photo-input')
+  const dt = new DataTransfer()
+  files.forEach(f => dt.items.add(f))
+  input.files = dt.files
+  previewPhotos({ target: input })
+}
+
+function updatePhotoPreview() {
+  const grid = document.getElementById('photo-previews')
+  grid.innerHTML = adPhotos.map((src, i) => `
+    <div style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;border:1.5px solid #e8dcc8;">
+      <img src="${src}" style="width:100%;height:100%;object-fit:cover;" />
+      ${i === 0 ? `<span style="position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:9px;background:rgba(0,0,0,0.6);color:white;padding:2px;">Cover</span>` : ''}
+      <button onclick="removePhoto(${i})" style="position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:#C8102E;color:white;border:none;cursor:pointer;font-size:10px;display:flex;align-items:center;justify-content:center;padding:0;">✕</button>
+    </div>`).join('')
+  document.getElementById('photo-count').textContent = `${adPhotos.length}/8 photos`
+}
+
+function removePhoto(i) {
+  adPhotos.splice(i, 1)
+  updatePhotoPreview()
+}
+
+function buildPreview() {
+  const title = document.getElementById('ad-title').value
+  const desc = document.getElementById('ad-desc').value
+  const price = document.getElementById('ad-price').value
+  const currency = document.getElementById('ad-currency').value
+  const region = document.getElementById('ad-region').value
+  const zone = document.getElementById('ad-zone')?.value || ''
+  const phone = document.getElementById('ad-phone').value
+  const name = document.getElementById('ad-name').value
+  const catObj = CATEGORIES.find(c => c.id === selectedCategory)
+
+  document.getElementById('ad-preview-box').innerHTML = `
+    ${adPhotos[0] ? `<img src="${adPhotos[0]}" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:14px;" />` : `<div style="height:100px;background:#e8dcc8;border-radius:10px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;font-size:36px;">${catObj?.emoji || '📋'}</div>`}
+    <h3 style="font-weight:700;font-size:1rem;margin-bottom:8px;">${title}</h3>
+    ${price ? `<p style="font-size:1.1rem;font-weight:700;color:#1a5c1a;margin-bottom:8px;">${currency} ${Number(price).toLocaleString()}</p>` : ''}
+    <p style="font-size:13px;color:#7a5c2a;line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">${desc}</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:#7a5c2a;padding-top:10px;border-top:1px solid #e8dcc8;">
+      <span>📂 ${catObj?.label || selectedCategory}</span>
+      <span>📍 ${[zone, region].filter(Boolean).join(', ')}</span>
+      <span>📞 ${phone}</span>
+      ${adPhotos.length ? `<span>📸 ${adPhotos.length} photos</span>` : ''}
+    </div>`
+}
+
+function publishAd() {
+  const btn = document.getElementById('publish-btn')
+  btn.innerHTML = '⏳ Publishing...'
+  btn.disabled = true
+
+  // Simulate publishing
+  setTimeout(() => {
+    const newAd = {
+      id: Date.now(),
+      title: document.getElementById('ad-title').value,
+      category: selectedCategory,
+      region: document.getElementById('ad-region').value || 'Ethiopia',
+      price: Number(document.getElementById('ad-price').value) || null,
+      currency: document.getElementById('ad-currency').value,
+      desc: document.getElementById('ad-desc').value,
+      phone: document.getElementById('ad-phone').value,
+      name: document.getElementById('ad-name').value || 'Anonymous',
+      featured: false, boosted: false, days: 0,
+      emoji: CATEGORIES.find(c=>c.id===selectedCategory)?.emoji || '📋'
+    }
+    allAds.unshift(newAd)
+    renderHomeAds()
+
+    // Reset form
+    currentStep = 1
+    selectedCategory = null
+    adPhotos = []
+    document.getElementById('category-picker').querySelectorAll('div').forEach(d => {
+      d.style.borderColor = '#e8dcc8'; d.style.background = 'white'
+    })
+    for (let i=1; i<=6; i++) {
+      document.getElementById(`post-step-${i}`).style.display = i===1 ? 'block' : 'none'
+    }
+    document.getElementById('prev-btn').style.display = 'none'
+    document.getElementById('next-btn').style.display = 'block'
+    updateStepIndicators(1)
+    clearPostError()
+
+    showToast('🎉 Your ad has been published!')
+    setTimeout(() => showPage('home'), 1000)
+  }, 1500)
+}
+
+// ── AUTH (demo) ───────────────────────────────────────
+function doLogin() {
+  const email = document.getElementById('login-email').value
+  const pass = document.getElementById('login-password').value
+  if (!email || !pass) { showToast('Please fill in all fields', '#C8102E'); return }
+  hideModal('login-modal')
+  showToast('Welcome back! ✅ Signed in successfully')
+}
+
+function doRegister() {
+  const name = document.getElementById('reg-name').value
+  const email = document.getElementById('reg-email').value
+  const phone = document.getElementById('reg-phone').value
+  const pass = document.getElementById('reg-password').value
+  if (!name || !email || !phone || !pass) { showToast('Please fill in all fields', '#C8102E'); return }
+  if (!/^(\+251[79]\d{8}|0[79]\d{8})$/.test(phone.replace(/\s/g,''))) {
+    showToast('Enter a valid Ethiopian phone number', '#C8102E'); return
+  }
+  hideModal('register-modal')
+  showToast('🎉 Account created! Welcome to EthioHub Africa!')
+}
+
+// ── BOOST / PAYMENT ───────────────────────────────────
+function showBoostModal(adTitle) {
+  document.getElementById('boost-ad-title').textContent = adTitle || 'Boost your ad for more visibility'
+  resetBoostSteps()
+  showModal('boost-modal')
+}
+
+function resetBoostSteps() {
+  boostStep = 1
+  for (let i=1; i<=5; i++) {
+    const el = document.getElementById(`boost-step-${i}`)
+    if (el) el.style.display = i===1 ? 'block' : 'none'
+  }
+}
+
+function selectPlan(plan) {
+  selectedPlan = plan
+  document.querySelectorAll('.pay-card[id^=plan-]').forEach(el => el.classList.remove('selected'))
+  document.getElementById(`plan-${plan}`).classList.add('selected')
+}
+
+function selectPayMethod(method) {
+  selectedPayMethod = method
+  document.querySelectorAll('.pay-card[id^=pay-]').forEach(el => el.classList.remove('selected'))
+  document.getElementById(`pay-${method}`).classList.add('selected')
+}
+
+const PLAN_DATA = {
+  basic:    { name:'Basic Boost', days:7, etb:99, kes:250, usdt:1.5 },
+  featured: { name:'Featured',     days:14, etb:199, kes:500, usdt:3 },
+  premium:  { name:'Premium',      days:30, etb:399, kes:1000, usdt:5.5 },
+}
+
+function buildPaymentInstructions() {
+  const plan = PLAN_DATA[selectedPlan]
+  const methods = {
+    telebirr: {
+      label:'📱 TeleBirr',
+      amount:`${plan.etb} ETB`,
+      steps:['Open your TeleBirr app','Select "Send Money"','Enter number: <strong>0915346985</strong>',`Enter amount: <strong>${plan.etb} ETB</strong>`,'Complete the payment','COPY the transaction confirmation code','Paste the code below to verify'],
+    },
+    ebirr: {
+      label:'💳 eBirr',
+      amount:`${plan.etb} ETB`,
+      steps:['Open eBirr app','Select "Transfer"','Enter number: <strong>0915346985</strong>',`Enter amount: <strong>${plan.etb} ETB</strong>`,'Complete the payment','Copy the confirmation code','Paste the code below to verify'],
+    },
+    mpesa: {
+      label:'🇰🇪 M-Pesa (Safaricom)',
+      amount:`${plan.kes} KES`,
+      steps:['Open M-Pesa on your Safaricom phone','Go to Lipa na M-Pesa → Buy Goods','Enter Store Number: <strong style="font-size:18px;color:#1a5c1a;">689970</strong>',`Enter amount: <strong>${plan.kes} KES</strong>`,'Enter your M-Pesa PIN','Copy the M-Pesa transaction code (e.g. QAX3D2K9X)','Paste the code below to verify'],
+    },
+    usdt: {
+      label:'₮ USDT (Binance BEP-20)',
+      amount:`${plan.usdt} USDT`,
+      steps:['Open Binance or Trust Wallet','Select Send → USDT','Choose BNB Smart Chain (BEP-20) network','⚠️ <strong style="color:#C8102E;">Do NOT use ERC-20 network!</strong>','Paste address: <code style="font-size:11px;background:#f0f0f0;padding:2px 6px;border-radius:4px;word-break:break-all;">0xe732799e25d518ddcb9a3e5ebc8b6762ce757bb9</code>',`Send amount: <strong>${plan.usdt} USDT</strong>`,'Copy the Transaction Hash (TxID) from your wallet','Paste the TxID below to verify'],
+    },
+  }
+  const m = methods[selectedPayMethod]
+  return `
+    <div style="margin-bottom:16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding:12px;background:#f8f2e6;border-radius:10px;">
+        <div>
+          <p style="font-weight:700;font-size:14px;">${m.label}</p>
+          <p style="font-size:12px;color:#7a5c2a;">${plan.name} · ${plan.days} days</p>
+        </div>
+        <p style="font-weight:800;font-size:18px;color:#D4A017;">${m.amount}</p>
+      </div>
+      <div style="background:#f8f2e6;border-radius:12px;padding:14px;">
+        <p style="font-size:12px;font-weight:700;color:#4a3a20;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Steps:</p>
+        ${m.steps.map((s,i) => `
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;">
+            <span style="width:20px;height:20px;border-radius:50%;background:#1a5c1a;color:white;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">${i+1}</span>
+            <p style="font-size:13px;color:#4a3a20;line-height:1.5;">${s}</p>
+          </div>`).join('')}
+      </div>
+    </div>`
+}
+
+function boostNext(fromStep) {
+  if (fromStep === 2 && !selectedPayMethod) {
+    showToast('Please select a payment method', '#C8102E')
+    return
+  }
+  document.getElementById(`boost-step-${fromStep}`).style.display = 'none'
+  const nextStep = fromStep + 1
+  boostStep = nextStep
+  document.getElementById(`boost-step-${nextStep}`).style.display = 'block'
+  if (fromStep === 2) {
+    document.getElementById('payment-instructions').innerHTML = buildPaymentInstructions()
+    const labels = { telebirr:'TeleBirr Confirmation Code', ebirr:'eBirr Confirmation Code', mpesa:'M-Pesa Transaction Code', usdt:'Transaction Hash (TxID)' }
+    document.getElementById('txref-label').textContent = labels[selectedPayMethod] || 'Transaction Reference'
+    document.getElementById('tx-ref-input').placeholder = selectedPayMethod === 'usdt' ? '0x1234abcd...' : selectedPayMethod === 'mpesa' ? 'e.g. QAX3D2K9X' : 'e.g. TLB20241234XXXX'
+  }
+}
+
+function boostBack(fromStep) {
+  document.getElementById(`boost-step-${fromStep}`).style.display = 'none'
+  boostStep = fromStep - 1
+  document.getElementById(`boost-step-${boostStep}`).style.display = 'block'
+}
+
+function verifyBoostPayment() {
+  const ref = document.getElementById('tx-ref-input').value.trim()
+  const errEl = document.getElementById('boost-verify-error')
+  if (!ref || ref.length < 6) {
+    errEl.textContent = '⚠️ Please enter a valid transaction reference (at least 6 characters).'
+    errEl.style.display = 'block'
+    return
+  }
+  errEl.style.display = 'none'
+  const btn = document.getElementById('verify-btn')
+  btn.innerHTML = '⏳ Verifying...'
+  btn.disabled = true
+  setTimeout(() => {
+    document.getElementById('boost-step-4').style.display = 'none'
+    document.getElementById('boost-step-5').style.display = 'block'
+    showToast('🎉 Boost activated! Your ad is now featured.')
+  }, 1800)
+}
+
+// ── COPY TO CLIPBOARD ──────────────────────────────────
+function copyText(text, el) {
+  navigator.clipboard.wr
